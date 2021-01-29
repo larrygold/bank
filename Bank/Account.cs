@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Bank
 {
-    abstract class Account
+    internal abstract class Account
     {
         protected User user;
         protected double balance;
         private List<Operation> operations = new List<Operation> { };
 
-        public Account (User user)
+        public Account(User user)
         {
             this.user = user;
             balance = 0.0;
@@ -37,19 +33,17 @@ namespace Bank
 
         public void Credit(double amount, Account debitedAccount)
         {
-            Credit (amount);
-            debitedAccount.Debit (amount);
-
+            Credit(amount);
+            debitedAccount.Debit(amount);
         }
 
         public void Debit(double amount, Account creditedAccount)
         {
             Debit(amount);
             creditedAccount.Credit(amount);
-
         }
 
-        public void Credit (double amount)
+        public void Credit(double amount)
         {
             balance += amount;
             operations.Add(new Operation(Movement.Credit, amount));
@@ -71,6 +65,5 @@ namespace Bank
             message += $"{operation.Amount} \n";
             return message;
         }
-
     }
 }

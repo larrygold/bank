@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bank
+﻿namespace Bank
 {
-    class CompanySavingsAccount : Account
+    internal class CompanySavingsAccount : Account
     {
         private double contributionRate;
         private string friendlyName = "compte épargne entreprise";
@@ -20,7 +14,6 @@ namespace Bank
 
         public void PayContributionRate() => Credit(balance * contributionRate);
 
-        
         public override string ShowAccountSummary()
         {
             string message = $"Résumé du {friendlyName} de {user.name} \n *************************** \n";

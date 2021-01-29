@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bank
+﻿namespace Bank
 {
-    class CurrentAccount : Account
+    internal class CurrentAccount : Account
     {
         private double authorisedOverdraft;
         private string friendlyName = "compte courant";
 
-        public CurrentAccount (User user, double authorisedOverdraft) : base(user)
+        public CurrentAccount(User user, double authorisedOverdraft) : base(user)
         {
             this.authorisedOverdraft = authorisedOverdraft;
         }

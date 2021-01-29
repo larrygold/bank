@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Bank
 {
-    static class Bank
+    internal static class Bank
     {
         private static List<User> users = new List<User> { };
 
@@ -25,6 +21,5 @@ namespace Bank
         {
             users.Add(user);
         }
-
     }
 }
