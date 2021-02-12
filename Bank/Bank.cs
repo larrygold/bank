@@ -11,8 +11,10 @@ namespace Bank
             string message = "";
             foreach (User user in Bank.users)
             {
-                foreach (Account account in user.accounts)
+                foreach (Account account in user.Accounts)
+                {
                     message += account.ShowBalance();
+                }
             }
             return message;
         }

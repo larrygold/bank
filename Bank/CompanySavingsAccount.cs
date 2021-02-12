@@ -10,13 +10,13 @@
             this.contributionRate = contributionRate;
         }
 
-        public override string ShowBalance() => $"Solde {friendlyName} de {user.name} : {balance} \n";
+        public override string ShowBalance() => $"Solde {friendlyName} de {user.Name} : {balance} \n";
 
         public void PayContributionRate() => Credit(balance * contributionRate);
 
         public override string ShowAccountSummary()
         {
-            string message = $"Résumé du {friendlyName} de {user.name} \n *************************** \n";
+            string message = $"Résumé du {friendlyName} de {user.Name} \n *************************** \n";
             message += base.ShowAccountSummary();
             message += $"Taux d'abondement : {contributionRate} \n";
 

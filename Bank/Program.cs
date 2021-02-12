@@ -6,6 +6,7 @@ namespace Bank
     {
         private static void Main(string[] args)
         {
+
             User nicolas = new User("Nicolas");
             User jeremie = new User("Jérémie");
 
@@ -38,6 +39,8 @@ namespace Bank
             Console.WriteLine(nicolasCompanySavingsAccount.ShowAccountSummary());
 
             Console.WriteLine(jeremieCurrentAccount.ShowAccountSummary());
+
+            Console.ReadLine();
         }
     }
 }
