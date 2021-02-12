@@ -4,12 +4,12 @@ namespace Bank
 {
     internal class User
     {
-        public string Name;
+        public string Name { get; }
         public List<Account> Accounts = new List<Account> { };
 
         public User(string name)
         {
-            this.Name = name;
+            Name = name;
             Bank.AddUser(this);
         }
 

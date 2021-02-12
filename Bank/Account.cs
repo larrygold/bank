@@ -4,25 +4,26 @@ namespace Bank
 {
     internal abstract class Account
     {
-        protected User user;
-        protected double balance;
-        private List<Operation> operations = new List<Operation> { };
+        protected User User;
+        protected double Balance;
+        private List<Operation> _operations = new List<Operation> { };
 
-        public Account(User user)
+        private Account(User user)
         {
-            this.user = user;
-            balance = 0.0;
+            this.User = user;
+            Balance = 0.0;
             user.AddAccount(this);
         }
+
 
         public abstract string ShowBalance();
 
         public virtual string ShowAccountSummary()
         {
             string message = "";
-            message += $"Solde : {balance} \n \n";
+            message += $"Solde : {Balance} \n \n";
             message += "Liste des opérations : \n";
-            foreach (Operation operation in operations)
+            foreach (Operation operation in _operations)
             {
                 ShowOperation(operation);
             }
@@ -45,14 +46,14 @@ namespace Bank
 
         public void Credit(double amount)
         {
-            balance += amount;
-            operations.Add(new Operation(Movement.Credit, amount));
+            Balance += amount;
+            _operations.Add(new Operation(Movement.Credit, amount));
         }
 
         public void Debit(double amount)
         {
-            balance -= amount;
-            operations.Add(new Operation(Movement.Debit, amount));
+            Balance -= amount;
+            _operations.Add(new Operation(Movement.Debit, amount));
         }
 
         private string ShowOperation(Operation operation)

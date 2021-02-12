@@ -5,10 +5,10 @@
         public Movement MovementType { get; set; }
         public double Amount { get; set; }
 
-        public Operation(Movement MovementType, double Amount)
+        public Operation(Movement movementType, double amount)
         {
-            this.MovementType = MovementType;
-            this.Amount = Amount;
+            this.MovementType = movementType;
+            this.Amount = amount;
         }
     }
 }

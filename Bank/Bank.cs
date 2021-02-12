@@ -4,12 +4,12 @@ namespace Bank
 {
     internal static class Bank
     {
-        private static List<User> users = new List<User> { };
+        private static List<User> _users = new List<User> { };
 
         public static string ShowAllAccountsBalances()
         {
             string message = "";
-            foreach (User user in Bank.users)
+            foreach (User user in Bank._users)
             {
                 foreach (Account account in user.Accounts)
                 {
@@ -21,7 +21,7 @@ namespace Bank
 
         public static void AddUser(User user)
         {
-            users.Add(user);
+            _users.Add(user);
         }
     }
 }

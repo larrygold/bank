@@ -2,21 +2,21 @@
 {
     internal class CurrentAccount : Account
     {
-        private double authorisedOverdraft;
-        private string friendlyName = "compte courant";
+        private double _authorisedOverdraft;
+        private string _friendlyName = "compte courant";
 
         public CurrentAccount(User user, double authorisedOverdraft) : base(user)
         {
-            this.authorisedOverdraft = authorisedOverdraft;
+            this._authorisedOverdraft = authorisedOverdraft;
         }
 
-        public override string ShowBalance() => $"Solde {friendlyName} de {user.Name} : {balance} \n";
+        public override string ShowBalance() => $"Solde {_friendlyName} de {User.Name} : {Balance} \n";
 
         public override string ShowAccountSummary()
         {
-            string message = $"Résumé du {friendlyName} de {user.Name} \n *************************** \n";
+            string message = $"Résumé du {_friendlyName} de {User.Name} \n *************************** \n";
             message += base.ShowAccountSummary();
-            message += $"Découvert autorisé : {authorisedOverdraft} \n";
+            message += $"Découvert autorisé : {_authorisedOverdraft} \n";
 
             return message;
         }

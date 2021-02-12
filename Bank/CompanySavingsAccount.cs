@@ -2,23 +2,23 @@
 {
     internal class CompanySavingsAccount : Account
     {
-        private double contributionRate;
-        private string friendlyName = "compte épargne entreprise";
+        private double _contributionRate;
+        private string _friendlyName = "compte épargne entreprise";
 
         public CompanySavingsAccount(User user, double contributionRate) : base(user)
         {
-            this.contributionRate = contributionRate;
+            this._contributionRate = contributionRate;
         }
 
-        public override string ShowBalance() => $"Solde {friendlyName} de {user.Name} : {balance} \n";
+        public override string ShowBalance() => $"Solde {_friendlyName} de {User.Name} : {Balance} \n";
 
-        public void PayContributionRate() => Credit(balance * contributionRate);
+        public void PayContributionRate() => Credit(Balance * _contributionRate);
 
         public override string ShowAccountSummary()
         {
-            string message = $"Résumé du {friendlyName} de {user.Name} \n *************************** \n";
+            string message = $"Résumé du {_friendlyName} de {User.Name} \n *************************** \n";
             message += base.ShowAccountSummary();
-            message += $"Taux d'abondement : {contributionRate} \n";
+            message += $"Taux d'abondement : {_contributionRate} \n";
 
             return message;
         }
