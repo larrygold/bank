@@ -1,4 +1,6 @@
-﻿namespace Bank
+﻿using System.Text;
+
+namespace Bank
 {
     internal class CurrentAccount : Account
     {
@@ -14,11 +16,12 @@
 
         public override string ShowAccountSummary()
         {
-            string message = $"Résumé du {_friendlyName} de {User.Name} \n *************************** \n";
-            message += base.ShowAccountSummary();
-            message += $"Découvert autorisé : {_authorisedOverdraft} \n";
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"Résumé du {_friendlyName} de {User.Name} \n *************************** \n");
+            sb.Append(base.ShowAccountSummary());
+            sb.Append($"Découvert autorisé : {_authorisedOverdraft} \n");
 
-            return message;
+            return sb.ToString();
         }
     }
 }

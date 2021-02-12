@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 namespace Bank
 {
@@ -8,28 +9,27 @@ namespace Bank
         protected double Balance;
         private List<Operation> _operations = new List<Operation> { };
 
-        private Account(User user)
+        public Account(User user)
         {
             this.User = user;
             Balance = 0.0;
             user.AddAccount(this);
         }
 
-
         public abstract string ShowBalance();
 
         public virtual string ShowAccountSummary()
         {
-            string message = "";
-            message += $"Solde : {Balance} \n \n";
-            message += "Liste des opérations : \n";
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"Solde : {Balance} \n \n").Append("Liste des opérations : \n");
+
             foreach (Operation operation in _operations)
             {
-                ShowOperation(operation);
+                sb.Append(ShowOperation(operation));
             }
-            message += "\n";
+            sb.Append("\n");
 
-            return message;
+            return sb.ToString();
         }
 
         public void Credit(double amount, Account debitedAccount)
@@ -58,13 +58,13 @@ namespace Bank
 
         private string ShowOperation(Operation operation)
         {
-            string message = "";
+            StringBuilder sb = new StringBuilder();
             if (operation.MovementType == Movement.Debit)
             {
-                message += "-";
+                sb.Append("-");
             }
-            message += $"{operation.Amount} \n";
-            return message;
+            sb.Append($"{operation.Amount} \n");
+            return sb.ToString();
         }
     }
 }

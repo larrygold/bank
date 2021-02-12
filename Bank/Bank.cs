@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 namespace Bank
 {
@@ -8,15 +9,15 @@ namespace Bank
 
         public static string ShowAllAccountsBalances()
         {
-            string message = "";
+            StringBuilder sb = new StringBuilder();
             foreach (User user in Bank._users)
             {
                 foreach (Account account in user.Accounts)
                 {
-                    message += account.ShowBalance();
+                    sb.Append(account.ShowBalance());
                 }
             }
-            return message;
+            return sb.ToString();
         }
 
         public static void AddUser(User user)
